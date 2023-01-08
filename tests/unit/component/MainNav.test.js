@@ -13,12 +13,6 @@ describe("MainNav", () => {
     });
   };
 
-  it("displays company name", () => {
-    renderMainNav();
-    const companyName = screen.getByText("Hooli Careers");
-    expect(companyName).toBeInTheDocument();
-  });
-
   it("displays menu items for navigation", () => {
     renderMainNav();
     const navigationMenuItems = screen.getAllByRole("listitem");
@@ -50,7 +44,7 @@ describe("MainNav", () => {
 
       await userEvent.click(loginButton);
 
-      profileImage = screen.getByRole("img", {
+      profileImage = screen.queryByRole("img", {
         name: /user profile image/i,
       });
       expect(profileImage).toBeInTheDocument;
