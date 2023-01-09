@@ -1,7 +1,7 @@
 <template>
-  <section>
+  <section class="mb-16">
     <h1 class="mb-14 text-8xl font-bold tracking-tighter">
-      <span :class="actionClasses">{{ verb }}</span>
+      <span :class="verbClasses">{{ verb }}</span>
       <br />
       for everyone
     </h1>
@@ -23,7 +23,7 @@ export default {
     };
   },
   computed: {
-    actionClasses() {
+    verbClasses() {
       return {
         // build: this.verb === "Build",
         // create: this.verb === "Create",
