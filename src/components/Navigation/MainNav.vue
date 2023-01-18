@@ -4,8 +4,8 @@
       <div
         class="mx-auto flex h-full flex-nowrap border-b border-solid border-brand-gray-1 px-4"
       >
-        <a
-          :href="url"
+        <router-link
+          :to="{ name: 'Home' }"
           class="flex h-full items-center text-3xl tracking-tighter text-hooli-blue"
         >
           <font-awesome-icon
@@ -13,17 +13,20 @@
             class="mr-2 text-8xl text-hooli-blue"
           />
           Careers
-        </a>
+        </router-link>
         <nav class="ml-12 h-full">
           <ul class="flex h-full list-none">
             <li
               v-for="navItem in navItems"
-              :key="navItem"
+              :key="navItem.text"
               class="ml-9 h-full first:ml-0"
             >
-              <a href="" class="flex h-full items-center py-2.5">
-                {{ navItem }}
-              </a>
+              <router-link
+                :to="navItem.url"
+                class="flex h-full items-center py-2.5"
+              >
+                {{ navItem.text }}
+              </router-link>
             </li>
           </ul>
         </nav>
@@ -51,14 +54,13 @@ export default {
   },
   data() {
     return {
-      url: "https://careers.google.com",
       navItems: [
-        "Teams",
-        "Locations",
-        "Life at Hooli",
-        "How We Hire",
-        "Students",
-        "Jobs",
+        { text: "Teams", url: "/" },
+        { text: "Locations", url: "/" },
+        { text: "Life at Hooli", url: "/" },
+        { text: "How We Hire", url: "/" },
+        { text: "Students", url: "/" },
+        { text: "Jobs", url: "/jobs/results" },
       ],
       isLoggedIn: false,
     };
